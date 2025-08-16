@@ -45,7 +45,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/users/register',
+        'https://ecommerce-backend-2-79ub.onrender.com/api/users/register',
         { email, password, name: fullname }
       );
       if (response.status === 201) {
@@ -58,7 +58,7 @@ const Profile = () => {
 
   const handleVerifyOtp = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/api/users/verify-otp', {
+      const response = await axios.post('https://ecommerce-backend-2-79ub.onrender.com/api/users/verify-otp', {
         email,
         otp
       });
@@ -73,7 +73,7 @@ const Profile = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.get("http://localhost:8000/api/users/logout", {
+      await axios.get("https://ecommerce-backend-2-79ub.onrender.com/api/users/logout", {
         withCredentials: true,
       });
       setUser({});
@@ -112,7 +112,7 @@ const Profile = () => {
       return;
     }
     const response = await axios.post(
-      "http://localhost:8000/api/address",
+      "https://ecommerce-backend-2-79ub.onrender.com/api/address",
       { address: newAddress },
       { withCredentials: true }
     );
@@ -140,7 +140,7 @@ const Profile = () => {
     const addressId = addresses[index]._id;
     console.log(addressId, 'address id to delete');
     try {
-      await axios.delete(`http://localhost:8000/api/address/${addressId}`, {
+      await axios.delete(`https://ecommerce-backend-2-79ub.onrender.com/api/address/${addressId}`, {
         withCredentials: true,
       });
       setAddresses(prev => prev.filter((_, i) => i !== index));
@@ -158,7 +158,7 @@ const Profile = () => {
   const handleSaveAddresses = async () => {
     try {
       await axios.post(
-        "http://localhost:8000/api/address",
+        "https://ecommerce-backend-2-79ub.onrender.com/api/address",
         { addresses },
         { withCredentials: true }
       );
@@ -169,7 +169,7 @@ const Profile = () => {
   };
   const fetchAddresses = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/address", {
+      const response = await axios.get("https://ecommerce-backend-2-79ub.onrender.com/api/address", {
         withCredentials: true
       });
       // console.log(response, 'Fetched addresses');
@@ -185,7 +185,7 @@ const Profile = () => {
   useEffect(() => {
     const checkLoggedIn = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/users/getme", {
+        const res = await axios.get("https://ecommerce-backend-2-79ub.onrender.com/api/users/getme", {
           withCredentials: true,
         });
         if (res.data.user) {

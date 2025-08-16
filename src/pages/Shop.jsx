@@ -19,7 +19,7 @@ const Shop = ({ getCart }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/products");
+        const res = await axios.get("https://ecommerce-backend-2-79ub.onrender.com/api/products");
         setProducts(res.data.products || []);
       } catch (error) {
         console.error("Failed to fetch products", error);
@@ -29,7 +29,7 @@ const Shop = ({ getCart }) => {
   }, []);
   const CartFn = async (id, quantity) => {
     console.log(id, quantity, 'in cart fn')
-    let response = await axios.post('http://localhost:8000/api/cart', {
+    let response = await axios.post('https://ecommerce-backend-2-79ub.onrender.com/api/cart', {
       productId: id,
       quantity: quantity
     },

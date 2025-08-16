@@ -12,7 +12,7 @@ const Home = ({ products, getCart }) => {
   // 🔹 Filter logic (unchanged)
   const CartFn = async (id, quantity) => {
     console.log(id, quantity, 'in cart fn')
-    let response = await axios.post('http://localhost:8000/api/cart', {
+    let response = await axios.post('https://ecommerce-backend-2-79ub.onrender.com/api/cart', {
       productId: id,
       quantity: quantity
     },

@@ -19,12 +19,12 @@ const App = () => {
   const [cart, setCart] = useState({});
 
   const getproducts = async () => {
-    const respone = await axios.get('http://localhost:8000/api/products');
+    const respone = await axios.get('https://ecommerce-backend-2-79ub.onrender.com/api/products');
     // console.log(respone.data.products)
     setProducts(respone.data.products);
   }
   const getCartItems = async () => {
-    const response = await axios.get('http://localhost:8000/api/cart', {
+    const response = await axios.get('https://ecommerce-backend-2-79ub.onrender.com/api/cart', {
       withCredentials: true
     });
     // console.log(response.data.cart,'cart items')
@@ -38,7 +38,7 @@ const App = () => {
   }
   const removeItem = async (itemId) => {
     try {
-      const response = await axios.delete(`http://localhost:8000/api/cart/${itemId}`, {
+      const response = await axios.delete(`https://ecommerce-backend-2-79ub.onrender.com/api/cart/${itemId}`, {
         withCredentials: true
       });
       console.log(response.data, 'Item removed successfully');

@@ -12,7 +12,7 @@ const Cart = ({ cart, removeItem }) => {
 
   const getme = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/users/profile", {
+      const response = await axios.get("https://ecommerce-backend-2-79ub.onrender.com/api/users/profile", {
         withCredentials: true
       })
       console.log(response.data, 'User data fetched successfully');
@@ -42,7 +42,7 @@ const Cart = ({ cart, removeItem }) => {
 
       // Create order
       const { data } = await axios.post(
-        "http://localhost:8000/api/orders/createorder",
+        "https://ecommerce-backend-2-79ub.onrender.com/api/orders/createorder",
         { addressId, paymentMethod },
         { withCredentials: true }
       );
@@ -56,7 +56,7 @@ const Cart = ({ cart, removeItem }) => {
         order_id: data.razorpayOrderId,
         handler: async function (response) {
           const verifyRes = await axios.post(
-            "http://localhost:8000/api/orders/verify",
+            "https://ecommerce-backend-2-79ub.onrender.com/api/orders/verify",
             {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
@@ -89,7 +89,7 @@ const Cart = ({ cart, removeItem }) => {
 
   const fetchAddresses = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/address", {
+      const response = await axios.get("https://ecommerce-backend-2-79ub.onrender.com/api/address", {
         withCredentials: true
       });
       console.log(response.data, 'Addresses fetched successfully');

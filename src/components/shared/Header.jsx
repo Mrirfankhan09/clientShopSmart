@@ -27,7 +27,7 @@ const Header = () => {
       try {
         // You should create this endpoint in your backend for efficient search
         const res = await axios.get(
-          `http://localhost:8000/api/products/suggestions?query=${value}`
+          `https://ecommerce-backend-2-79ub.onrender.com/api/products/suggestions?query=${value}`
         );
         console.log(res.data.suggestions, 'suggestions');
         setFilteredSuggestions(res.data.suggestions || []);
