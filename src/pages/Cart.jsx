@@ -41,11 +41,13 @@ const Cart = ({ cart, removeItem }) => {
       const paymentMethod = "razorpay";
 
       // Create order
-      const { data } = await axios.post(
-        "https://ecommerce-backend-2-79ub.onrender.com/api/orders/createorder",
+      const response = await axios.post(
+        "https://ecommerce-backend-2-79ub.onrender.com/api/order/createorder",
         { addressId, paymentMethod },
         { withCredentials: true }
       );
+      let data = response.data;
+      console.log(data, 'Order created successfully');
 
       const options = {
         key: data.key,
