@@ -58,7 +58,7 @@ const Cart = ({ cart, removeItem }) => {
         order_id: data.razorpayOrderId,
         handler: async function (response) {
           const verifyRes = await axios.post(
-            "https://ecommerce-backend-2-79ub.onrender.com/api/orders/verify",
+            "https://ecommerce-backend-2-79ub.onrender.com/api/order/verify",
             {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
@@ -67,6 +67,7 @@ const Cart = ({ cart, removeItem }) => {
             },
             { withCredentials: true }
           );
+          console.log(verifyRes.data, 'Payment verification response');
 
           if (verifyRes.data.success) {
             alert("Payment successful!");
